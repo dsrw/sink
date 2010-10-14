@@ -4,28 +4,29 @@
 
 wait = (time, cb) -> setTimeout cb, time
 
-order = ""
-out = (label) ->
-  order += label
+order = []
+step = (step) ->
+  order.push step
 q ->
-  out "1"
-  q -> out "2"
-  q -> out "3"
+  step 1
+  q -> step 2
+  q -> step 3
   q ->
-    out "4"
-    q -> out "5"
-q -> out "6"
+    step 4
+    q -> step 5
+q -> step 6
 q wait, 5, ->
-  out "7"
-  q wait, 100, -> out "8"
-  q wait, 0, -> out "9"
+  step 7
+  q wait, 100, -> step 8
+  q wait, 0, -> step 9
 q ->
   q.parallel (p) ->
-    p wait, 100, -> out "d"
-    p wait, 0, -> out "b"
-    p wait, 50, -> out "c"
-    p -> out "a"
-  q -> out "e"
+    p wait, 100, -> step 13
+    p wait, 0, -> step 11
+    p wait, 50, -> step 12
+    p -> step 10
+  q -> step 14
 q ->
-  puts order
-  ok order == "123456789abcde"
+  step 15
+  ok order.join() == "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"
+  puts "done: #{order}"
