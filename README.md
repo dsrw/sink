@@ -1,6 +1,6 @@
 # q.coffee
 
-q.coffee is a pair of simple sequence functions for coffeescript that impose order on async code.
+q.coffee is a pair of simple sequence functions for coffeescript that untangle async code.
 
     for name, dir of dirs 
       q path.exists, dir, (exists) ->
@@ -13,10 +13,9 @@ The `q` function takes either a single callback, or a function, optional args, a
 
     q process.nextTick ->
       puts "In the town"
-      q process.nextTick ->
-        puts "where I was born"
-        q -> puts "There lived a man"
-    q -> process.nextTick -> puts "Who sailed the sea"
+      q process.nextTick -> puts "where I was born"
+    q -> puts "There lived a man"
+    q process.nextTick -> puts "Who sailed the sea"
     q -> puts "The end!"
 
 ## q.parallel
