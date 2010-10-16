@@ -1,12 +1,12 @@
-{puts, debug} = require 'sys'
+{puts} = require 'sys'
 {ok} = require 'assert'
 {q} = require '../lib/q'
 
 wait = (time, cb) -> setTimeout cb, time
-
 order = []
 step = (step) ->
   order.push step
+
 q ->
   step 1
   q -> step 2
