@@ -1,8 +1,8 @@
-# sinq
+# sink
 
-sinq is a pair of simple sequence functions for untangling async code.
+sink is a pair of simple sequence functions for untangling async code.
     
-    {q} = require 'sinq'
+    {q} = require 'sink'
     for name, dir of dirs 
       q path.exists, dir, (exists) ->
         die "#{dir} doesn't exist" unless exists
@@ -32,7 +32,7 @@ The `q` function takes either a single callback, or a function, optional args, a
 
 ## The Good
 
-sinq is only 20 lines long, and should more or less do what is expected even with complicated nesting.  It allows for a succinct style and leads to more readable code than nested callbacks, and provides greater freedom than other step type libraries.
+sink is only 20 lines long, and should more or less do what is expected even with complicated nesting.  It allows for a succinct style and leads to more readable code than nested callbacks, and provides greater freedom than other step type libraries.
 
 ## The Bad
 
