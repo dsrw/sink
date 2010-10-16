@@ -1,7 +1,8 @@
-# q.coffee
+# sinq
 
-q.coffee is a pair of simple sequence functions for coffeescript that untangle async code.
-
+sinq is a pair of simple sequence functions for untangling async code.
+    
+    {q} = require 'sinq'
     for name, dir of dirs 
       q path.exists, dir, (exists) ->
         die "#{dir} doesn't exist" unless exists
@@ -31,7 +32,7 @@ The `q` function takes either a single callback, or a function, optional args, a
 
 ## The Good
 
-`q` is only 20 lines long, and should more or less do what is expected even with complicated nesting.  It allows for a succinct style and leads to more readable code than nested callbacks, and provides greater freedom than other `step` type libraries.
+sinq is only 20 lines long, and should more or less do what is expected even with complicated nesting.  It allows for a succinct style and leads to more readable code than nested callbacks, and provides greater freedom than other step type libraries.
 
 ## The Bad
 

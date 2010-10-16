@@ -1,6 +1,6 @@
 {puts} = require 'sys'
 {ok} = require 'assert'
-{q} = require '../lib/q'
+{q} = require '../lib/sink'
 
 wait = (time, cb) -> setTimeout cb, time
 order = []
