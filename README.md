@@ -21,7 +21,7 @@ The `q` function takes either a single callback, or a function, optional args, a
 
 ## q.parallel
 
-`q.parallel` runs a series of callbacks concurrently, the proceeds when they've all completed.
+`q.parallel` runs a series of callbacks concurrently.  The next `q`'d function won't fire until they've all completed. 
 
     wait = (time, cb) -> setTimeout cb, time 
     q.parallel (p) ->
