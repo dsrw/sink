@@ -25,9 +25,9 @@ The `q` function takes either a single callback, or a function, optional args, a
 
     wait = (time, cb) -> setTimeout cb, time 
     q.parallel (p) ->
-      p wait, 100 -> puts "A"
-      p wait, 50 -> puts "B"
-      p wait, 0 -> puts "C"
+      p wait, 100, -> puts "A"
+      p wait, 50, -> puts "B"
+      p wait, 0, -> puts "C"
     q -> puts "Now I know my CBAs"
 
 ## The Good
