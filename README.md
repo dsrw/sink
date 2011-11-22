@@ -12,11 +12,11 @@ sink is a pair of simple sequence functions for untangling async code.
 
 The `q` function takes either a single callback, or a function, optional args, and a callback.  `q` calls can be made from anywhere.
 
-    q process.nextTick ->
+    q process.nextTick, ->
       puts "In the town"
-      q process.nextTick -> puts "where I was born"
+      q process.nextTick, -> puts "where I was born"
     q -> puts "There lived a man"
-    q process.nextTick -> puts "Who sailed the sea"
+    q process.nextTick, -> puts "Who sailed the sea"
     q -> puts "The end!"
 
 ## q.parallel
