@@ -4,7 +4,7 @@ sink is a pair of simple sequence functions for untangling async code.
     
     {q} = require 'sink'
     for name, dir of dirs 
-      q path.exists, dir, (exists) ->
+      q fs.exists, dir, (exists) ->
         die "#{dir} doesn't exist" unless exists
     q -> puts "looks good."
 
